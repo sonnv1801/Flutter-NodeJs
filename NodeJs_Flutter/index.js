@@ -4,13 +4,15 @@ const FCM = require("fcm-node");
 var serverKey = require("./privatekey.json");
 var fcm = new FCM(serverKey);
 const port = 3000;
+const PORT = process.env.PORT || 3000;
+
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
 
 app.post("/token", (req, res) => {
